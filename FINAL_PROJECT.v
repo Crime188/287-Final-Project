@@ -11,7 +11,7 @@ module FINAL_PROJECT (
     ////////////// LED //////////
     output [9:0]      LEDR,           // LEDs
     ////////////// SW //////////
-    input [9:0]       SW              // Switches
+    input [9:0]       SW,              // Switches
 
     //VGA
     output		          		VGA_BLANK_N,
@@ -103,10 +103,6 @@ parameter VGA_HEIGHT = 16'd480;
 parameter VIRTUAL_PIXEL_WIDTH = VGA_WIDTH/PIXEL_VIRTUAL_SIZE; // 160
 parameter VIRTUAL_PIXEL_HEIGHT = VGA_HEIGHT/PIXEL_VIRTUAL_SIZE; // 120
 
-wire [191:0] BOARD;
-assign BOARD = 192'b000010000010000010000010010000010000010000010000000010000010000010000010111000111000111000111000000111000111000111000111001000001000001000001000000001000001000001000001001000001000001000001000;
-
-
 wire [14:0] adrr;
 wire [23:0] framedraw;
 wire en;
@@ -130,15 +126,12 @@ the_vga_draw_frame_write_mem_address = adrr;
 the_vga_draw_frame_write_mem_data = framedraw;
 the_vga_draw_frame_write_a_pixel = en;    
 end
-*/
+
 
 wire [6:0] seg7_neg_sign;
 wire [6:0] seg7_dig0;
 wire [6:0] seg7_dig1;
 wire [6:0] seg7_dig2;
-
-assign LEDR[9:6] = Disired_X;          // Desired X-coordinate
-assign LEDR[5:2] = Disired_Y;          // Desired Y-coordinate
 
 assign HEX0 = seg7_dig0;               // 7-segment display for digit 0
 assign HEX1 = seg7_dig1;               // 7-segment display for digit 1
@@ -155,7 +148,6 @@ three_decimal_vals_w_neg display(
 );
 reg [3:0] Disired_X;   // X-coordinate (4 bits for 1-8)
 reg [3:0] Disired_Y;   // Y-coordinate (4 bits for 1-8)
-reg en;                 // Enable signal for getting status
 
 wire [2:0] status;     // Status of the cell at (Disired_X, Disired_Y)
 

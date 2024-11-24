@@ -7,7 +7,7 @@ module BOARD_DRAWER (
     output reg the_vga_draw_frame_write_a_pixel, // enable writing
     input x,
     input y,
-    input active_pixels;
+    input active_pixels
 );
 // this Module Takes what Jameison did in the vgaDriverToFrameBuff
 //, and rewrites it to be a FSM.
@@ -49,7 +49,7 @@ always @(*) begin
         end
         Check_0: begin
             // Example: Check for center of a 2D grid
-            if ((y % 15 >= 6) && (y % 15 <= 9) && (active))
+            if ((y % 15 >= 6) && (y % 15 <= 9) && (active_pixels))
 				//if ((IDX / 240) > 10)
                 NS = Color;
             else

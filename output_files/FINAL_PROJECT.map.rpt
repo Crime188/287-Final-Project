@@ -1,6 +1,6 @@
 Analysis & Synthesis report for FINAL_PROJECT
-Thu Nov 21 23:04:20 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Sun Nov 24 00:03:39 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
 ---------------------
@@ -13,22 +13,50 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "getStatus:g1"
- 10. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig0"
- 11. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig1"
- 12. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig2"
- 13. Port Connectivity Checks: "three_decimal_vals_w_neg:display"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |FINAL_PROJECT|BOARD_DRAWER:b1|S
+ 10. State Machine - |FINAL_PROJECT|vga_frame_driver:my_frame_driver|wr_id
+ 11. State Machine - |FINAL_PROJECT|vga_frame_driver:my_frame_driver|S
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated
+ 17. Source assignments for vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated
+ 18. Source assignments for vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated
+ 19. Parameter Settings for User Entity Instance: Top-level Entity: |FINAL_PROJECT
+ 20. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver
+ 21. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component
+ 22. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component
+ 23. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_driver:the_vga
+ 25. Parameter Settings for User Entity Instance: BOARD_DRAWER:b1
+ 26. Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|lpm_divide:Mod1
+ 27. Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|lpm_divide:Mod0
+ 28. Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div1
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig0"
+ 32. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig1"
+ 33. Port Connectivity Checks: "three_decimal_vals_w_neg:display|seven_segment:dig2"
+ 34. Port Connectivity Checks: "three_decimal_vals_w_neg:display"
+ 35. Port Connectivity Checks: "BOARD_DRAWER:b1|getStatus:statusGetter"
+ 36. Port Connectivity Checks: "BOARD_DRAWER:b1"
+ 37. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame"
+ 38. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory1"
+ 39. Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0"
+ 40. Port Connectivity Checks: "vga_frame_driver:my_frame_driver"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
+ 44. Analysis & Synthesis Suppressed Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -48,16 +76,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Nov 21 23:04:20 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 24 00:03:39 2024          ;
+; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; FINAL_PROJECT                                  ;
 ; Top-level Entity Name           ; FINAL_PROJECT                                  ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 53                                             ;
+; Total registers                 ; 89                                             ;
+; Total pins                      ; 82                                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0                                              ;
+; Total block memory bits         ; 2,359,296                                      ;
 ; Total DSP Blocks                ; 0                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -160,66 +188,239 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 28          ;
+; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                              ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
-; seven_segment_negative.v         ; yes             ; User Verilog HDL File  ; D:/Final Project/seven_segment_negative.v   ;         ;
-; seven_segment.v                  ; yes             ; User Verilog HDL File  ; D:/Final Project/seven_segment.v            ;         ;
-; three_decimal_vals_w_neg.v       ; yes             ; User Verilog HDL File  ; D:/Final Project/three_decimal_vals_w_neg.v ;         ;
-; FINAL_PROJECT.v                  ; yes             ; User Verilog HDL File  ; D:/Final Project/FINAL_PROJECT.v            ;         ;
-; getStatus.v                      ; yes             ; User Verilog HDL File  ; D:/Final Project/getStatus.v                ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
+; vga_frame.v                      ; yes             ; User Wizard-Generated File   ; D:/Final Project/vga_frame.v                                                    ;         ;
+; vga_frame_driver.v               ; yes             ; User Verilog HDL File        ; D:/Final Project/vga_frame_driver.v                                             ;         ;
+; IDX_TO_XY.v                      ; yes             ; User Verilog HDL File        ; D:/Final Project/IDX_TO_XY.v                                                    ;         ;
+; BOARD_DRAWER.v                   ; yes             ; User Verilog HDL File        ; D:/Final Project/BOARD_DRAWER.v                                                 ;         ;
+; seven_segment_negative.v         ; yes             ; User Verilog HDL File        ; D:/Final Project/seven_segment_negative.v                                       ;         ;
+; seven_segment.v                  ; yes             ; User Verilog HDL File        ; D:/Final Project/seven_segment.v                                                ;         ;
+; three_decimal_vals_w_neg.v       ; yes             ; User Verilog HDL File        ; D:/Final Project/three_decimal_vals_w_neg.v                                     ;         ;
+; FINAL_PROJECT.v                  ; yes             ; User Verilog HDL File        ; D:/Final Project/FINAL_PROJECT.v                                                ;         ;
+; getStatus.v                      ; yes             ; User Verilog HDL File        ; D:/Final Project/getStatus.v                                                    ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_1go1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/altsyncram_1go1.tdf                                         ;         ;
+; db/decode_8la.tdf                ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/decode_8la.tdf                                              ;         ;
+; db/decode_11a.tdf                ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/decode_11a.tdf                                              ;         ;
+; db/mux_6hb.tdf                   ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/mux_6hb.tdf                                                 ;         ;
+; vga_driver.v                     ; yes             ; Auto-Found Verilog HDL File  ; D:/Final Project/vga_driver.v                                                   ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_12m.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/lpm_divide_12m.tdf                                          ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/sign_div_unsign_7kh.tdf                                     ;         ;
+; db/alt_u_div_kse.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/alt_u_div_kse.tdf                                           ;         ;
+; db/lpm_divide_jbm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/lpm_divide_jbm.tdf                                          ;         ;
+; db/sign_div_unsign_plh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/sign_div_unsign_plh.tdf                                     ;         ;
+; db/alt_u_div_ove.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/alt_u_div_ove.tdf                                           ;         ;
+; db/lpm_divide_0dm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/lpm_divide_0dm.tdf                                          ;         ;
+; db/sign_div_unsign_6nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/sign_div_unsign_6nh.tdf                                     ;         ;
+; db/alt_u_div_i2f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Final Project/db/alt_u_div_i2f.tdf                                           ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 5           ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 9           ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 0           ;
-;     -- 5 input functions                    ; 0           ;
-;     -- 4 input functions                    ; 3           ;
-;     -- <=3 input functions                  ; 6           ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 53          ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; SW[0]~input ;
-; Maximum fan-out                             ; 7           ;
-; Total fan-out                               ; 101         ;
-; Average fan-out                             ; 0.88        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 179            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 274            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 78             ;
+;     -- 5 input functions                    ; 40             ;
+;     -- 4 input functions                    ; 23             ;
+;     -- <=3 input functions                  ; 133            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 89             ;
+;                                             ;                ;
+; I/O pins                                    ; 82             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 2359296        ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 377            ;
+; Total fan-out                               ; 6393           ;
+; Average fan-out                             ; 7.84           ;
++---------------------------------------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                              ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+---------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name   ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+---------------+--------------+
-; |FINAL_PROJECT             ; 9 (4)               ; 0 (0)                     ; 0                 ; 0          ; 53   ; 0            ; |FINAL_PROJECT              ; FINAL_PROJECT ; work         ;
-;    |getStatus:g1|          ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|getStatus:g1 ; getStatus     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------+---------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                          ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                ; Entity Name      ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; |FINAL_PROJECT                               ; 274 (1)             ; 89 (0)                    ; 2359296           ; 0          ; 82   ; 0            ; |FINAL_PROJECT                                                                                                                                                     ; FINAL_PROJECT    ; work         ;
+;    |BOARD_DRAWER:b1|                         ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|BOARD_DRAWER:b1                                                                                                                                     ; BOARD_DRAWER     ; work         ;
+;    |getStatus:g1|                            ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|getStatus:g1                                                                                                                                        ; getStatus        ; work         ;
+;    |vga_frame_driver:my_frame_driver|        ; 270 (188)           ; 88 (61)                   ; 2359296           ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver                                                                                                                    ; vga_frame_driver ; work         ;
+;       |vga_driver:the_vga|                   ; 38 (38)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_driver:the_vga                                                                                                 ; vga_driver       ; work         ;
+;       |vga_frame:the_vga_draw_frame|         ; 28 (0)              ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame                                                                                       ; vga_frame        ; work         ;
+;          |altsyncram:altsyncram_component|   ; 28 (0)              ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component                                                       ; altsyncram       ; work         ;
+;             |altsyncram_1go1:auto_generated| ; 28 (0)              ; 2 (2)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated                        ; altsyncram_1go1  ; work         ;
+;                |decode_11a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode ; decode_11a       ; work         ;
+;                |mux_6hb:mux2|                ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2           ; mux_6hb          ; work         ;
+;       |vga_frame:vga_memory0|                ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory0                                                                                              ; vga_frame        ; work         ;
+;          |altsyncram:altsyncram_component|   ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component                                                              ; altsyncram       ; work         ;
+;             |altsyncram_1go1:auto_generated| ; 8 (0)               ; 2 (2)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated                               ; altsyncram_1go1  ; work         ;
+;                |decode_11a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode        ; decode_11a       ; work         ;
+;                |decode_8la:decode3|          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3            ; decode_8la       ; work         ;
+;       |vga_frame:vga_memory1|                ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory1                                                                                              ; vga_frame        ; work         ;
+;          |altsyncram:altsyncram_component|   ; 8 (0)               ; 2 (0)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component                                                              ; altsyncram       ; work         ;
+;             |altsyncram_1go1:auto_generated| ; 8 (0)               ; 2 (2)                     ; 786432            ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated                               ; altsyncram_1go1  ; work         ;
+;                |decode_11a:rden_decode|      ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode        ; decode_11a       ; work         ;
+;                |decode_8la:decode3|          ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3            ; decode_8la       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+; Name                                                                                                                                    ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+; vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 32768        ; 24           ; --           ; --           ; 786432 ; None ;
+; vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|ALTSYNCRAM        ; AUTO ; Single Port ; 32768        ; 24           ; --           ; --           ; 786432 ; None ;
+; vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|ALTSYNCRAM        ; AUTO ; Single Port ; 32768        ; 24           ; --           ; --           ; 786432 ; None ;
++-----------------------------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+--------+------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------+
+; State Machine - |FINAL_PROJECT|BOARD_DRAWER:b1|S                          ;
++----------------+---------+-----------+----------------+---------+---------+
+; Name           ; S.Color ; S.Check_0 ; S.Check_Status ; S.START ; S.Itter ;
++----------------+---------+-----------+----------------+---------+---------+
+; S.START        ; 0       ; 0         ; 0              ; 0       ; 0       ;
+; S.Check_Status ; 0       ; 0         ; 1              ; 1       ; 0       ;
+; S.Check_0      ; 0       ; 1         ; 0              ; 1       ; 0       ;
+; S.Color        ; 1       ; 0         ; 0              ; 1       ; 0       ;
+; S.Itter        ; 0       ; 0         ; 0              ; 1       ; 1       ;
++----------------+---------+-----------+----------------+---------+---------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------+
+; State Machine - |FINAL_PROJECT|vga_frame_driver:my_frame_driver|wr_id                                       ;
++----------------------------+----------------------+----------------------------+----------------------------+
+; Name                       ; wr_id.MEM_INIT_WRITE ; wr_id.MEM_M0_WRITE_M1_READ ; wr_id.MEM_M0_READ_M1_WRITE ;
++----------------------------+----------------------+----------------------------+----------------------------+
+; wr_id.MEM_INIT_WRITE       ; 0                    ; 0                          ; 0                          ;
+; wr_id.MEM_M0_READ_M1_WRITE ; 1                    ; 0                          ; 1                          ;
+; wr_id.MEM_M0_WRITE_M1_READ ; 1                    ; 1                          ; 0                          ;
++----------------------------+----------------------+----------------------------+----------------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------+
+; State Machine - |FINAL_PROJECT|vga_frame_driver:my_frame_driver|S                                      ;
++------------------+---------------+-----------------+------------------+------------+---------+---------+
+; Name             ; S.RFM_DRAWING ; S.RFM_INIT_WAIT ; S.RFM_INIT_START ; S.W2M_DONE ; S.ERROR ; S.START ;
++------------------+---------------+-----------------+------------------+------------+---------+---------+
+; S.START          ; 0             ; 0               ; 0                ; 0          ; 0       ; 0       ;
+; S.W2M_DONE       ; 0             ; 0               ; 0                ; 1          ; 0       ; 1       ;
+; S.RFM_INIT_START ; 0             ; 0               ; 1                ; 0          ; 0       ; 1       ;
+; S.RFM_INIT_WAIT  ; 0             ; 1               ; 0                ; 0          ; 0       ; 1       ;
+; S.RFM_DRAWING    ; 1             ; 0               ; 0                ; 0          ; 0       ; 1       ;
+; S.ERROR          ; 0             ; 0               ; 0                ; 0          ; 1       ; 1       ;
++------------------+---------------+-----------------+------------------+------------+---------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                             ;
++----------------------------------------------------------------------------+-------------------------------------------------------------------+
+; Register name                                                              ; Reason for Removal                                                ;
++----------------------------------------------------------------------------+-------------------------------------------------------------------+
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[3..8,10,12..15,19,20,23] ; Merged with BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[0]  ;
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[1,2,9,16..18,21,22]      ; Merged with BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[11] ;
+; BOARD_DRAWER:b1|S~4                                                        ; Lost fanout                                                       ;
+; BOARD_DRAWER:b1|S~5                                                        ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~4                                       ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~5                                       ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~8                                       ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~9                                       ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~10                                      ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S~11                                      ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|wr_id.MEM_INIT_WRITE                      ; Lost fanout                                                       ;
+; vga_frame_driver:my_frame_driver|S.START                                   ; Merged with BOARD_DRAWER:b1|S.START                               ;
+; vga_frame_driver:my_frame_driver|S.ERROR                                   ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|S.Color                                                    ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|S.Check_0                                                  ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[0]                       ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[0..14]                ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[11]                      ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|the_vga_draw_frame_write_a_pixel                           ; Stuck at GND due to stuck port data_in                            ;
+; BOARD_DRAWER:b1|S.Itter                                                    ; Lost fanout                                                       ;
+; BOARD_DRAWER:b1|S.Check_Status                                             ; Lost fanout                                                       ;
+; BOARD_DRAWER:b1|IDX[0..14]                                                 ; Lost fanout                                                       ;
+; Total Number of Removed Registers = 70                                     ;                                                                   ;
++----------------------------------------------------------------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++---------------------------+---------------------------+----------------------------------------------------------------------------+
+; Register name             ; Reason for Removal        ; Registers Removed due to This Register                                     ;
++---------------------------+---------------------------+----------------------------------------------------------------------------+
+; BOARD_DRAWER:b1|S.Color   ; Stuck at GND              ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[0],                   ;
+;                           ; due to stuck port data_in ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[1],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[2],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[3],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[4],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[5],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[6],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[7],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[8],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[9],                   ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[13],                  ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[14],                  ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[10],                  ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[11],                  ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_address[12],                  ;
+;                           ;                           ; BOARD_DRAWER:b1|the_vga_draw_frame_write_a_pixel, BOARD_DRAWER:b1|IDX[0],  ;
+;                           ;                           ; BOARD_DRAWER:b1|IDX[1], BOARD_DRAWER:b1|IDX[2], BOARD_DRAWER:b1|IDX[3],    ;
+;                           ;                           ; BOARD_DRAWER:b1|IDX[4], BOARD_DRAWER:b1|IDX[5], BOARD_DRAWER:b1|IDX[6],    ;
+;                           ;                           ; BOARD_DRAWER:b1|IDX[7], BOARD_DRAWER:b1|IDX[8], BOARD_DRAWER:b1|IDX[9],    ;
+;                           ;                           ; BOARD_DRAWER:b1|IDX[14], BOARD_DRAWER:b1|IDX[13], BOARD_DRAWER:b1|IDX[12], ;
+;                           ;                           ; BOARD_DRAWER:b1|IDX[11], BOARD_DRAWER:b1|IDX[10]                           ;
+; BOARD_DRAWER:b1|S.Check_0 ; Stuck at GND              ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[0],                      ;
+;                           ; due to stuck port data_in ; BOARD_DRAWER:b1|the_vga_draw_frame_write_mem_data[11]                      ;
+; BOARD_DRAWER:b1|S~4       ; Lost Fanouts              ; BOARD_DRAWER:b1|S.Check_Status                                             ;
++---------------------------+---------------------------+----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -227,87 +428,449 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 89    ;
+; Number of registers using Synchronous Clear  ; 44    ;
+; Number of registers using Synchronous Load   ; 17    ;
+; Number of registers using Asynchronous Clear ; 68    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 74    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------+
-; Port Connectivity Checks: "getStatus:g1"               ;
-+----------------------+-------+----------+--------------+
-; Port                 ; Type  ; Severity ; Details      ;
-+----------------------+-------+----------+--------------+
-; BoardState[119..117] ; Input ; Info     ; Stuck at VCC ;
-; BoardState[113..111] ; Input ; Info     ; Stuck at VCC ;
-; BoardState[107..105] ; Input ; Info     ; Stuck at VCC ;
-; BoardState[101..99]  ; Input ; Info     ; Stuck at VCC ;
-; BoardState[92..90]   ; Input ; Info     ; Stuck at VCC ;
-; BoardState[86..84]   ; Input ; Info     ; Stuck at VCC ;
-; BoardState[80..78]   ; Input ; Info     ; Stuck at VCC ;
-; BoardState[74..72]   ; Input ; Info     ; Stuck at VCC ;
-; BoardState[191..188] ; Input ; Info     ; Stuck at GND ;
-; BoardState[186..182] ; Input ; Info     ; Stuck at GND ;
-; BoardState[180..176] ; Input ; Info     ; Stuck at GND ;
-; BoardState[174..170] ; Input ; Info     ; Stuck at GND ;
-; BoardState[168..167] ; Input ; Info     ; Stuck at GND ;
-; BoardState[165..161] ; Input ; Info     ; Stuck at GND ;
-; BoardState[159..155] ; Input ; Info     ; Stuck at GND ;
-; BoardState[153..149] ; Input ; Info     ; Stuck at GND ;
-; BoardState[147..140] ; Input ; Info     ; Stuck at GND ;
-; BoardState[138..134] ; Input ; Info     ; Stuck at GND ;
-; BoardState[132..128] ; Input ; Info     ; Stuck at GND ;
-; BoardState[126..122] ; Input ; Info     ; Stuck at GND ;
-; BoardState[116..114] ; Input ; Info     ; Stuck at GND ;
-; BoardState[110..108] ; Input ; Info     ; Stuck at GND ;
-; BoardState[104..102] ; Input ; Info     ; Stuck at GND ;
-; BoardState[98..93]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[89..87]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[83..81]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[77..75]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[71..70]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[68..64]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[62..58]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[56..52]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[50..43]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[41..37]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[35..31]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[29..25]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[23..22]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[20..16]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[14..10]   ; Input ; Info     ; Stuck at GND ;
-; BoardState[8..4]     ; Input ; Info     ; Stuck at GND ;
-; BoardState[2..0]     ; Input ; Info     ; Stuck at GND ;
-; BoardState[187]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[181]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[175]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[169]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[166]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[160]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[154]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[148]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[139]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[133]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[127]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[121]      ; Input ; Info     ; Stuck at VCC ;
-; BoardState[120]      ; Input ; Info     ; Stuck at GND ;
-; BoardState[69]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[63]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[57]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[51]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[42]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[36]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[30]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[24]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[21]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[15]       ; Input ; Info     ; Stuck at VCC ;
-; BoardState[9]        ; Input ; Info     ; Stuck at VCC ;
-; BoardState[3]        ; Input ; Info     ; Stuck at VCC ;
-+----------------------+-------+----------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|read_buf_mem_address[10]                                                                                                       ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2|l2_w10_n0_mux_dataout ;
+; 9:1                ; 24 bits   ; 144 LEs       ; 144 LEs              ; 0 LEs                  ; No         ; |FINAL_PROJECT|vga_frame_driver:my_frame_driver|VGA_G[3]                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                             ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                              ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                             ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                              ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                    ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                     ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |FINAL_PROJECT ;
++----------------------+------------------+-------------------------------------+
+; Parameter Name       ; Value            ; Type                                ;
++----------------------+------------------+-------------------------------------+
+; START                ; 00000000         ; Unsigned Binary                     ;
+; W2M_INIT             ; 00000001         ; Unsigned Binary                     ;
+; W2M_COND             ; 00000010         ; Unsigned Binary                     ;
+; W2M_INC              ; 00000011         ; Unsigned Binary                     ;
+; W2M_DONE             ; 00000100         ; Unsigned Binary                     ;
+; RFM_INIT_START       ; 00000101         ; Unsigned Binary                     ;
+; RFM_INIT_WAIT        ; 00000110         ; Unsigned Binary                     ;
+; RFM_DRAWING          ; 00000111         ; Unsigned Binary                     ;
+; ERROR                ; 11111111         ; Unsigned Binary                     ;
+; MEMORY_SIZE          ; 0100101100000000 ; Unsigned Binary                     ;
+; PIXEL_VIRTUAL_SIZE   ; 0000000000000100 ; Unsigned Binary                     ;
+; VGA_WIDTH            ; 0000001010000000 ; Unsigned Binary                     ;
+; VGA_HEIGHT           ; 0000000111100000 ; Unsigned Binary                     ;
+; VIRTUAL_PIXEL_WIDTH  ; 0000000010100000 ; Unsigned Binary                     ;
+; VIRTUAL_PIXEL_HEIGHT ; 0000000001111000 ; Unsigned Binary                     ;
++----------------------+------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver ;
++----------------------+------------------+-------------------------------------+
+; Parameter Name       ; Value            ; Type                                ;
++----------------------+------------------+-------------------------------------+
+; START                ; 00000000         ; Unsigned Binary                     ;
+; W2M_DONE             ; 00000100         ; Unsigned Binary                     ;
+; RFM_INIT_START       ; 00000101         ; Unsigned Binary                     ;
+; RFM_INIT_WAIT        ; 00000110         ; Unsigned Binary                     ;
+; RFM_DRAWING          ; 00000111         ; Unsigned Binary                     ;
+; ERROR                ; 11111111         ; Unsigned Binary                     ;
+; MEMORY_SIZE          ; 0100101100000000 ; Unsigned Binary                     ;
+; PIXEL_VIRTUAL_SIZE   ; 0000000000000100 ; Unsigned Binary                     ;
+; VGA_WIDTH            ; 0000001010000000 ; Unsigned Binary                     ;
+; VGA_HEIGHT           ; 0000000111100000 ; Unsigned Binary                     ;
+; VIRTUAL_PIXEL_WIDTH  ; 0000000010100000 ; Unsigned Binary                     ;
+; VIRTUAL_PIXEL_HEIGHT ; 0000000001111000 ; Unsigned Binary                     ;
+; MEM_INIT_WRITE       ; 00               ; Unsigned Binary                     ;
+; MEM_M0_READ_M1_WRITE ; 01               ; Unsigned Binary                     ;
+; MEM_M0_WRITE_M1_READ ; 10               ; Unsigned Binary                     ;
+; MEM_ERROR            ; 11               ; Unsigned Binary                     ;
++----------------------+------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                    ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                 ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                                 ;
+; WIDTH_A                            ; 24                   ; Signed Integer                                                          ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                                          ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                 ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                 ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; INIT_FILE                          ; image.mif            ; Untyped                                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                 ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_1go1      ; Untyped                                                                 ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                    ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                 ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                                 ;
+; WIDTH_A                            ; 24                   ; Signed Integer                                                          ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                                          ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                 ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                 ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                 ;
+; INIT_FILE                          ; image.mif            ; Untyped                                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                 ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_1go1      ; Untyped                                                                 ;
++------------------------------------+----------------------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                           ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                                   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                                   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                                 ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                        ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                                        ;
+; WIDTH_A                            ; 24                   ; Signed Integer                                                                 ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                                                 ;
+; NUMWORDS_A                         ; 32768                ; Signed Integer                                                                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                        ;
+; WIDTH_B                            ; 1                    ; Untyped                                                                        ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                                        ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                                        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                                        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                                 ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                        ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                        ;
+; INIT_FILE                          ; image.mif            ; Untyped                                                                        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                        ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                                        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                        ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                                        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                        ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                                        ;
+; CBXI_PARAMETER                     ; altsyncram_1go1      ; Untyped                                                                        ;
++------------------------------------+----------------------+--------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_frame_driver:my_frame_driver|vga_driver:the_vga ;
++----------------+----------------------------------+----------------------------------------------+
+; Parameter Name ; Value                            ; Type                                         ;
++----------------+----------------------------------+----------------------------------------------+
+; HA_END         ; 1001111111                       ; Unsigned Binary                              ;
+; HS_STA         ; 00000000000000000000001010001111 ; Unsigned Binary                              ;
+; HS_END         ; 00000000000000000000001011101111 ; Unsigned Binary                              ;
+; WIDTH          ; 1100011111                       ; Unsigned Binary                              ;
+; VA_END         ; 0111011111                       ; Unsigned Binary                              ;
+; VS_STA         ; 00000000000000000000000111101001 ; Unsigned Binary                              ;
+; VS_END         ; 00000000000000000000000111101011 ; Unsigned Binary                              ;
+; HEIGHT         ; 1000001100                       ; Unsigned Binary                              ;
++----------------+----------------------------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BOARD_DRAWER:b1 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; START          ; 000   ; Unsigned Binary                     ;
+; Check_Status   ; 001   ; Unsigned Binary                     ;
+; Check_0        ; 010   ; Unsigned Binary                     ;
+; Color          ; 011   ; Unsigned Binary                     ;
+; Itter          ; 100   ; Unsigned Binary                     ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|lpm_divide:Mod1 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 1              ; Untyped                                ;
+; LPM_WIDTHD             ; 4              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_12m ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 1              ; Untyped                                ;
+; LPM_WIDTHD             ; 4              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_12m ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 15             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_jbm ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div1 ;
++------------------------+----------------+----------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                     ;
++------------------------+----------------+----------------------------------------------------------+
+; LPM_WIDTHN             ; 15             ; Untyped                                                  ;
+; LPM_WIDTHD             ; 10             ; Untyped                                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                  ;
+; CBXI_PARAMETER         ; lpm_divide_0dm ; Untyped                                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                           ;
++------------------------+----------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                          ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                         ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------+
+; Number of entity instances                ; 3                                                                                             ;
+; Entity Instance                           ; vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component        ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                   ;
+;     -- WIDTH_A                            ; 24                                                                                            ;
+;     -- NUMWORDS_A                         ; 32768                                                                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                  ;
+;     -- WIDTH_B                            ; 1                                                                                             ;
+;     -- NUMWORDS_B                         ; 1                                                                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                     ;
+; Entity Instance                           ; vga_frame_driver:my_frame_driver|vga_frame:vga_memory1|altsyncram:altsyncram_component        ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                   ;
+;     -- WIDTH_A                            ; 24                                                                                            ;
+;     -- NUMWORDS_A                         ; 32768                                                                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                  ;
+;     -- WIDTH_B                            ; 1                                                                                             ;
+;     -- NUMWORDS_B                         ; 1                                                                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                     ;
+; Entity Instance                           ; vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                                   ;
+;     -- WIDTH_A                            ; 24                                                                                            ;
+;     -- NUMWORDS_A                         ; 32768                                                                                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                  ;
+;     -- WIDTH_B                            ; 1                                                                                             ;
+;     -- NUMWORDS_B                         ; 1                                                                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                        ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                  ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                          ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                     ;
++-------------------------------------------+-----------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------+
@@ -346,22 +909,161 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BOARD_DRAWER:b1|getStatus:statusGetter"                                                                                     ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                   ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; status ; Output ; Warning  ; Output or bidir port (3 bits) is wider than the port expression (1 bits) it drives; bit(s) "status[2..1]" have no fanouts ;
++--------+--------+----------+---------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BOARD_DRAWER:b1"                                                                                                                                                                            ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                                                                                                                                                           ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board[119..117] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[113..111] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[107..105] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[101..99]  ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[92..90]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[86..84]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[80..78]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[74..72]   ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[191..188] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[186..182] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[180..176] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[174..170] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[168..167] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[165..161] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[159..155] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[153..149] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[147..140] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[138..134] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[132..128] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[126..122] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[116..114] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[110..108] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[104..102] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[98..93]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[89..87]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[83..81]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[77..75]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[71..70]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[68..64]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[62..58]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[56..52]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[50..43]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[41..37]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[35..31]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[29..25]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[23..22]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[20..16]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[14..10]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[8..4]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[2..0]     ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[187]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[181]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[175]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[169]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[166]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[160]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[154]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[148]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[139]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[133]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[127]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[121]      ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[120]      ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; Board[69]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[63]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[57]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[51]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[42]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[36]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[30]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[24]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[21]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[15]       ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[9]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; Board[3]        ; Input ; Info     ; Stuck at VCC                                                                                                                                                                      ;
+; x               ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (1 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; y               ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (1 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:the_vga_draw_frame"                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (15 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory1"                                                                                                                              ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (15 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0"                                                                                                                              ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (15 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_frame_driver:my_frame_driver"                                                         ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; frame_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; x[9..1]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; y[9..1]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 13                          ;
-;     normal            ; 13                          ;
+; arriav_ff             ; 89                          ;
+;     CLR               ; 7                           ;
+;     CLR SLD           ; 2                           ;
+;     ENA               ; 15                          ;
+;     ENA CLR SCLR      ; 44                          ;
+;     ENA CLR SLD       ; 15                          ;
+;     plain             ; 6                           ;
+; arriav_lcell_comb     ; 276                         ;
+;     arith             ; 20                          ;
+;         1 data inputs ; 20                          ;
+;     normal            ; 232                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 3                           ;
-; boundary_port         ; 53                          ;
+;         2 data inputs ; 57                          ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 21                          ;
+;         5 data inputs ; 40                          ;
+;         6 data inputs ; 78                          ;
+;     shared            ; 24                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 2                           ;
+; boundary_port         ; 82                          ;
+; stratixv_ram_block    ; 288                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.89                        ;
+; Max LUT depth         ; 3.90                        ;
+; Average LUT depth     ; 1.66                        ;
 +-----------------------+-----------------------------+
 
 
@@ -370,7 +1072,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -379,11 +1081,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Nov 21 23:04:13 2024
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Sun Nov 24 00:03:26 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FINAL_PROJECT -c FINAL_PROJECT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file vga_frame.v
+    Info (12023): Found entity 1: vga_frame File: D:/Final Project/vga_frame.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file vga_frame_driver.v
+    Info (12023): Found entity 1: vga_frame_driver File: D:/Final Project/vga_frame_driver.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file idx_to_xy.v
+    Info (12023): Found entity 1: IDX_TO_XY File: D:/Final Project/IDX_TO_XY.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file board_drawer.v
+    Info (12023): Found entity 1: BOARD_DRAWER File: D:/Final Project/BOARD_DRAWER.v Line: 1
 Info (12021): Found 0 design units, including 0 entities, in source file legal_move_checker.v
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_negative.v
     Info (12023): Found entity 1: seven_segment_negative File: D:/Final Project/seven_segment_negative.v Line: 1
@@ -395,16 +1105,114 @@ Info (12021): Found 1 design units, including 1 entities, in source file final_p
     Info (12023): Found entity 1: FINAL_PROJECT File: D:/Final Project/FINAL_PROJECT.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file getstatus.v
     Info (12023): Found entity 1: getStatus File: D:/Final Project/getStatus.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at BOARD_DRAWER.v(75): created implicit net for "ST" File: D:/Final Project/BOARD_DRAWER.v Line: 75
 Info (12127): Elaborating entity "FINAL_PROJECT" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at FINAL_PROJECT.v(56): truncated value with size 32 to match size of target (4) File: D:/Final Project/FINAL_PROJECT.v Line: 56
-Warning (10230): Verilog HDL assignment warning at FINAL_PROJECT.v(57): truncated value with size 32 to match size of target (4) File: D:/Final Project/FINAL_PROJECT.v Line: 57
-Warning (10034): Output port "LEDR[1..0]" at FINAL_PROJECT.v(12) has no driver File: D:/Final Project/FINAL_PROJECT.v Line: 12
-Info (12128): Elaborating entity "three_decimal_vals_w_neg" for hierarchy "three_decimal_vals_w_neg:display" File: D:/Final Project/FINAL_PROJECT.v Line: 41
+Warning (10230): Verilog HDL assignment warning at FINAL_PROJECT.v(110): truncated value with size 15 to match size of target (10) File: D:/Final Project/FINAL_PROJECT.v Line: 110
+Warning (10230): Verilog HDL assignment warning at FINAL_PROJECT.v(162): truncated value with size 32 to match size of target (4) File: D:/Final Project/FINAL_PROJECT.v Line: 162
+Warning (10230): Verilog HDL assignment warning at FINAL_PROJECT.v(163): truncated value with size 32 to match size of target (4) File: D:/Final Project/FINAL_PROJECT.v Line: 163
+Info (12128): Elaborating entity "vga_frame_driver" for hierarchy "vga_frame_driver:my_frame_driver" File: D:/Final Project/FINAL_PROJECT.v Line: 77
+Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(157): all case item expressions in this case statement are onehot File: D:/Final Project/vga_frame_driver.v Line: 157
+Info (10264): Verilog HDL Case Statement information at vga_frame_driver.v(214): all case item expressions in this case statement are onehot File: D:/Final Project/vga_frame_driver.v Line: 214
+Info (12128): Elaborating entity "vga_frame" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0" File: D:/Final Project/vga_frame_driver.v Line: 51
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: D:/Final Project/vga_frame.v Line: 86
+Info (12130): Elaborated megafunction instantiation "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" File: D:/Final Project/vga_frame.v Line: 86
+Info (12133): Instantiated megafunction "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component" with the following parameter: File: D:/Final Project/vga_frame.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "image.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "32768"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "15"
+    Info (12134): Parameter "width_a" = "24"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1go1.tdf
+    Info (12023): Found entity 1: altsyncram_1go1 File: D:/Final Project/db/altsyncram_1go1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_1go1" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Critical Warning (127003): Can't find Memory Initialization File or Hexadecimal (Intel-Format) File D:/Final Project/image.mif -- setting all initial values to 0 File: D:/Final Project/vga_frame.v Line: 86
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_8la.tdf
+    Info (12023): Found entity 1: decode_8la File: D:/Final Project/db/decode_8la.tdf Line: 23
+Info (12128): Elaborating entity "decode_8la" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_8la:decode3" File: D:/Final Project/db/altsyncram_1go1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_11a.tdf
+    Info (12023): Found entity 1: decode_11a File: D:/Final Project/db/decode_11a.tdf Line: 23
+Info (12128): Elaborating entity "decode_11a" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|decode_11a:rden_decode" File: D:/Final Project/db/altsyncram_1go1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_6hb.tdf
+    Info (12023): Found entity 1: mux_6hb File: D:/Final Project/db/mux_6hb.tdf Line: 23
+Info (12128): Elaborating entity "mux_6hb" for hierarchy "vga_frame_driver:my_frame_driver|vga_frame:vga_memory0|altsyncram:altsyncram_component|altsyncram_1go1:auto_generated|mux_6hb:mux2" File: D:/Final Project/db/altsyncram_1go1.tdf Line: 46
+Warning (12125): Using design file vga_driver.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: vga_driver File: D:/Final Project/vga_driver.v Line: 11
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_frame_driver:my_frame_driver|vga_driver:the_vga" File: D:/Final Project/vga_frame_driver.v Line: 139
+Info (12128): Elaborating entity "BOARD_DRAWER" for hierarchy "BOARD_DRAWER:b1" File: D:/Final Project/FINAL_PROJECT.v Line: 121
+Warning (10036): Verilog HDL or VHDL warning at BOARD_DRAWER.v(63): object "status" assigned a value but never read File: D:/Final Project/BOARD_DRAWER.v Line: 63
+Warning (10270): Verilog HDL Case Statement warning at BOARD_DRAWER.v(41): incomplete case statement has no default case item File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Info (10264): Verilog HDL Case Statement information at BOARD_DRAWER.v(41): all case item expressions in this case statement are onehot File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Warning (10240): Verilog HDL Always Construct warning at BOARD_DRAWER.v(41): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Warning (10199): Verilog HDL Case Statement warning at BOARD_DRAWER.v(102): case item expression never matches the case expression File: D:/Final Project/BOARD_DRAWER.v Line: 102
+Warning (10199): Verilog HDL Case Statement warning at BOARD_DRAWER.v(103): case item expression never matches the case expression File: D:/Final Project/BOARD_DRAWER.v Line: 103
+Warning (10199): Verilog HDL Case Statement warning at BOARD_DRAWER.v(104): case item expression never matches the case expression File: D:/Final Project/BOARD_DRAWER.v Line: 104
+Warning (10199): Verilog HDL Case Statement warning at BOARD_DRAWER.v(105): case item expression never matches the case expression File: D:/Final Project/BOARD_DRAWER.v Line: 105
+Info (10041): Inferred latch for "NS.Itter" at BOARD_DRAWER.v(41) File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Info (10041): Inferred latch for "NS.Color" at BOARD_DRAWER.v(41) File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Info (10041): Inferred latch for "NS.Check_0" at BOARD_DRAWER.v(41) File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Info (10041): Inferred latch for "NS.Check_Status" at BOARD_DRAWER.v(41) File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Info (12128): Elaborating entity "IDX_TO_XY" for hierarchy "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY" File: D:/Final Project/BOARD_DRAWER.v Line: 73
+Warning (10230): Verilog HDL assignment warning at IDX_TO_XY.v(8): truncated value with size 15 to match size of target (4) File: D:/Final Project/IDX_TO_XY.v Line: 8
+Warning (10230): Verilog HDL assignment warning at IDX_TO_XY.v(9): truncated value with size 15 to match size of target (4) File: D:/Final Project/IDX_TO_XY.v Line: 9
+Info (12128): Elaborating entity "getStatus" for hierarchy "BOARD_DRAWER:b1|getStatus:statusGetter" File: D:/Final Project/BOARD_DRAWER.v Line: 75
+Warning (10230): Verilog HDL assignment warning at getStatus.v(9): truncated value with size 32 to match size of target (6) File: D:/Final Project/getStatus.v Line: 9
+Info (12128): Elaborating entity "three_decimal_vals_w_neg" for hierarchy "three_decimal_vals_w_neg:display" File: D:/Final Project/FINAL_PROJECT.v Line: 148
 Info (12128): Elaborating entity "seven_segment" for hierarchy "three_decimal_vals_w_neg:display|seven_segment:dig2" File: D:/Final Project/three_decimal_vals_w_neg.v Line: 22
 Info (12128): Elaborating entity "seven_segment_negative" for hierarchy "three_decimal_vals_w_neg:display|seven_segment_negative:neg" File: D:/Final Project/three_decimal_vals_w_neg.v Line: 25
-Info (12128): Elaborating entity "getStatus" for hierarchy "getStatus:g1" File: D:/Final Project/FINAL_PROJECT.v Line: 54
-Warning (10230): Verilog HDL assignment warning at getStatus.v(9): truncated value with size 32 to match size of target (6) File: D:/Final Project/getStatus.v Line: 9
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BOARD_DRAWER:b1|Mod1" File: D:/Final Project/BOARD_DRAWER.v Line: 52
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BOARD_DRAWER:b1|Mod0" File: D:/Final Project/BOARD_DRAWER.v Line: 45
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|Div0" File: D:/Final Project/IDX_TO_XY.v Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|Div1" File: D:/Final Project/IDX_TO_XY.v Line: 9
+Info (12130): Elaborated megafunction instantiation "BOARD_DRAWER:b1|lpm_divide:Mod1" File: D:/Final Project/BOARD_DRAWER.v Line: 52
+Info (12133): Instantiated megafunction "BOARD_DRAWER:b1|lpm_divide:Mod1" with the following parameter: File: D:/Final Project/BOARD_DRAWER.v Line: 52
+    Info (12134): Parameter "LPM_WIDTHN" = "1"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_12m.tdf
+    Info (12023): Found entity 1: lpm_divide_12m File: D:/Final Project/db/lpm_divide_12m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: D:/Final Project/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
+    Info (12023): Found entity 1: alt_u_div_kse File: D:/Final Project/db/alt_u_div_kse.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div0" File: D:/Final Project/IDX_TO_XY.v Line: 8
+Info (12133): Instantiated megafunction "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div0" with the following parameter: File: D:/Final Project/IDX_TO_XY.v Line: 8
+    Info (12134): Parameter "LPM_WIDTHN" = "15"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jbm.tdf
+    Info (12023): Found entity 1: lpm_divide_jbm File: D:/Final Project/db/lpm_divide_jbm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_plh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_plh File: D:/Final Project/db/sign_div_unsign_plh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ove.tdf
+    Info (12023): Found entity 1: alt_u_div_ove File: D:/Final Project/db/alt_u_div_ove.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div1" File: D:/Final Project/IDX_TO_XY.v Line: 9
+Info (12133): Instantiated megafunction "BOARD_DRAWER:b1|IDX_TO_XY:idxtoXY|lpm_divide:Div1" with the following parameter: File: D:/Final Project/IDX_TO_XY.v Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "15"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0dm.tdf
+    Info (12023): Found entity 1: lpm_divide_0dm File: D:/Final Project/db/lpm_divide_0dm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_6nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_6nh File: D:/Final Project/db/sign_div_unsign_6nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i2f.tdf
+    Info (12023): Found entity 1: alt_u_div_i2f File: D:/Final Project/db/alt_u_div_i2f.tdf Line: 23
+Warning (14026): LATCH primitive "BOARD_DRAWER:b1|NS.Itter_775" is permanently enabled File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Warning (14026): LATCH primitive "BOARD_DRAWER:b1|NS.Check_Status_799" is permanently enabled File: D:/Final Project/BOARD_DRAWER.v Line: 41
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 5
     Warning (13410): Pin "HEX0[2]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 5
@@ -424,27 +1232,45 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[6]" is stuck at VCC File: D:/Final Project/FINAL_PROJECT.v Line: 8
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: D:/Final Project/FINAL_PROJECT.v Line: 12
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: D:/Final Project/FINAL_PROJECT.v Line: 23
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Final Project/output_files/FINAL_PROJECT.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_50" File: D:/Final Project/FINAL_PROJECT.v Line: 3
-    Warning (15610): No output dependent on input pin "KEY[0]" File: D:/Final Project/FINAL_PROJECT.v Line: 10
     Warning (15610): No output dependent on input pin "KEY[1]" File: D:/Final Project/FINAL_PROJECT.v Line: 10
     Warning (15610): No output dependent on input pin "KEY[2]" File: D:/Final Project/FINAL_PROJECT.v Line: 10
     Warning (15610): No output dependent on input pin "KEY[3]" File: D:/Final Project/FINAL_PROJECT.v Line: 10
-    Warning (15610): No output dependent on input pin "SW[3]" File: D:/Final Project/FINAL_PROJECT.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[4]" File: D:/Final Project/FINAL_PROJECT.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[5]" File: D:/Final Project/FINAL_PROJECT.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[6]" File: D:/Final Project/FINAL_PROJECT.v Line: 15
-Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[3]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[4]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[5]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[6]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+    Warning (15610): No output dependent on input pin "SW[9]" File: D:/Final Project/FINAL_PROJECT.v Line: 14
+Info (21057): Implemented 678 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 38 output pins
-    Info (21061): Implemented 9 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
-    Info: Peak virtual memory: 4861 megabytes
-    Info: Processing ended: Thu Nov 21 23:04:21 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:01
+    Info (21059): Implemented 67 output pins
+    Info (21061): Implemented 308 logic cells
+    Info (21064): Implemented 288 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Sun Nov 24 00:03:39 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:08
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Final Project/output_files/FINAL_PROJECT.map.smsg.
 
 

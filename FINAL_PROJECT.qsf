@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE 5CSEMA5F31C6
 set_global_assignment -name TOP_LEVEL_ENTITY FINAL_PROJECT
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:25:37  NOVEMBER 21, 2024"
-set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -231,6 +231,10 @@ set_location_assignment PIN_E12 -to VGA_R[6]
 set_location_assignment PIN_F13 -to VGA_R[7]
 set_location_assignment PIN_C10 -to VGA_SYNC_N
 set_location_assignment PIN_D11 -to VGA_VS
+set_global_assignment -name VERILOG_FILE vga_frame.v
+set_global_assignment -name VERILOG_FILE vga_frame_driver.v
+set_global_assignment -name VERILOG_FILE IDX_TO_XY.v
+set_global_assignment -name VERILOG_FILE BOARD_DRAWER.v
 set_global_assignment -name VERILOG_FILE Legal_Move_Checker.v
 set_global_assignment -name VERILOG_FILE seven_segment_negative.v
 set_global_assignment -name VERILOG_FILE seven_segment.v

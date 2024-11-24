@@ -1,6 +1,6 @@
 Flow report for FINAL_PROJECT
-Thu Nov 21 23:05:24 2024
-Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Sun Nov 24 00:06:13 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
 ---------------------
@@ -21,7 +21,7 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2024  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
 and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu Nov 21 23:05:24 2024          ;
-; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Flow Status                     ; Successful - Sun Nov 24 00:06:13 2024          ;
+; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; FINAL_PROJECT                                  ;
 ; Top-level Entity Name           ; FINAL_PROJECT                                  ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 5 / 32,070 ( < 1 % )                           ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 53 / 457 ( 12 % )                              ;
+; Logic utilization (in ALMs)     ; 188 / 32,070 ( < 1 % )                         ;
+; Total registers                 ; 102                                            ;
+; Total pins                      ; 82 / 457 ( 18 % )                              ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
+; Total block memory bits         ; 2,359,296 / 4,065,280 ( 58 % )                 ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/21/2024 23:04:14 ;
+; Start date & time ; 11/24/2024 00:03:26 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FINAL_PROJECT       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 184978422678550.173224825410740        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 1096194256700.173242460664048          ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_timing_analysis               ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
@@ -107,12 +107,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4861 MB             ; 00:00:01                           ;
-; Fitter               ; 00:00:22     ; 1.0                     ; 7815 MB             ; 00:00:27                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4866 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:14     ; 1.0                     ; 5222 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4725 MB             ; 00:00:00                           ;
-; Total                ; 00:00:51     ; --                      ; --                  ; 00:00:31                           ;
+; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4883 MB             ; 00:00:08                           ;
+; Fitter               ; 00:01:45     ; 1.2                     ; 7883 MB             ; 00:03:44                           ;
+; Assembler            ; 00:00:12     ; 1.0                     ; 4886 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:16     ; 1.7                     ; 5385 MB             ; 00:00:11                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 4750 MB             ; 00:00:01                           ;
+; Total                ; 00:02:31     ; --                      ; --                  ; 00:04:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -121,11 +121,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; CEC-EGB267-01    ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; CEC-EGB267-01    ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; CEC-EGB267-01    ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; CEC-EGB267-01    ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; CEC-EGB267-01    ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; OneToRuleThemAll ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; OneToRuleThemAll ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; OneToRuleThemAll ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; OneToRuleThemAll ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; OneToRuleThemAll ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
