@@ -62,7 +62,17 @@ end
 
 reg [2:0]status;
 
-getStatus statusGetter(X,Y,Board,ST);
+wire [3:0]X_b_pos;
+wire [3:0]Y_b_pos;
+
+
+IDX_TO_XY idxtoXY( // convert the IDX into board x and y cords
+IDX,
+X_b_pos,
+Y_b_pos
+);
+
+getStatus statusGetter(X_b_pos,Y_b_pos,Board,ST); // gets the current square of the Board State
 
 // contorl singlas
 always @(posedge clk or negedge rst) begin
@@ -82,10 +92,10 @@ always @(posedge clk or negedge rst) begin
                 the_vga_draw_frame_write_a_pixel <= 1'b0;
                 status <= 3'b100;
             end
-            Check_Status : begin
+            Check_Status : begin // update the internal Status
                 status <= ST;
             end
-            Check_0 : begin
+            Check_0 : begin // set the color of to be drawn.
                 case (ST)
                     3'b000 : the_vga_draw_frame_write_mem_data <= 24'hFFFFFF; // white
                     3'b001 : the_vga_draw_frame_write_mem_data <= 24'h98F5F9; // Player 1 Piece (tuqouies)
@@ -96,14 +106,14 @@ always @(posedge clk or negedge rst) begin
                     default: the_vga_draw_frame_write_mem_data <= 24'h123123; // Blackish
                 endcase
             end
-            Color : begin
+            Color : begin // tell the VGA module the location and to begin.
                 the_vga_draw_frame_write_mem_address <= IDX;
                 the_vga_draw_frame_write_a_pixel <= 1'b1;
             end
             Itter : begin
-                the_vga_draw_frame_write_a_pixel <= 1'b0;
+                the_vga_draw_frame_write_a_pixel <= 1'b0; // tells the module to disable writing
                 
-                if (IDX > 15'd14400)
+                if (IDX >= 15'd14400) // make sure we dont go over the writable surface.
                     IDX <= 0;
                 else
                     IDX <= IDX + 15'd1;
