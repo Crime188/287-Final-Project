@@ -112,8 +112,17 @@ wire [23:0] framedraw;
 wire en;
 
 assign LEDR = adrr;
-
-BOARD_DRAWER b1(clk,rst,BOARD,adrr,framedraw,en);
+// BOARD DRAWER INSTYANTIATION
+BOARD_DRAWER b1(
+    clk,
+    rst,
+    BOARD,
+    adrr,
+    framedraw,
+    en,
+    x,
+    y,
+    active_pixels);
 
 
 always@(*) begin

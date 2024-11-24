@@ -4,7 +4,10 @@ module BOARD_DRAWER (
     input [191:0]Board,
     output reg [14:0]the_vga_draw_frame_write_mem_address, // location to draw to.
     output reg [23:0]the_vga_draw_frame_write_mem_data, // color (8bit red, 8bit Green, 8bit Blue)
-    output reg the_vga_draw_frame_write_a_pixel // enable writing
+    output reg the_vga_draw_frame_write_a_pixel, // enable writing
+    input x,
+    input y,
+    input active_pixels;
 );
 // this Module Takes what Jameison did in the vgaDriverToFrameBuff
 //, and rewrites it to be a FSM.
@@ -39,14 +42,14 @@ always @(*) begin
         START: NS = Check_Status;
         Check_Status: begin
             // Example: Checking horizontal center (magic numbers for position)
-            if (IDX % 15 >= 6 && IDX % 15 <= 9) // Center of a line
+            if ((x % 15 >= 6) && (x % 15 <= 9) && (active_pixels)) // Center of a line
                 NS = Check_0;
             else
                 NS = Itter;
         end
         Check_0: begin
             // Example: Check for center of a 2D grid
-            if ((IDX % 600) / 120 >= 6 && (IDX % 600) / 120 <= 9)
+            if ((y % 15 >= 6) && (y % 15 <= 9) && (active))
 				//if ((IDX / 240) > 10)
                 NS = Color;
             else
@@ -59,31 +62,16 @@ end
 
 reg [2:0]status;
 
-reg [3:0]x_cord;
-reg [3:0]y_cord;
-
-wire [3:0]x_w;
-wire [3:0]y_w;
-
-always@(*)begin
-x_cord = x_w;
-y_cord = y_w;
-
-end
-
-
-
-IDX_TO_XY idxConvert(IDX,x_w,y_w);
-getStatus statusGetter(x_cord,y_cord,Board,ST);
+getStatus statusGetter(X,Y,Board,ST);
 
 // contorl singlas
 always @(posedge clk or negedge rst) begin
     if (rst == 1'b0) begin
-		IDX <= 14'd0 ;
+		IDX <= 15'd0 ;
       the_vga_draw_frame_write_mem_address <= 15'd0 ;
 		the_vga_draw_frame_write_mem_data <= 24'd0 ;
 		the_vga_draw_frame_write_a_pixel <= 1'b0 ;
-      status <= 3'b111 ;
+      status <= 3'b111 ; // default to black
 	end
     else begin
         case (S)
