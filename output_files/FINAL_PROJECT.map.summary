@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sun Nov 24 00:03:39 2024
-Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+Analysis & Synthesis Status : Successful - Thu Dec  5 13:42:00 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : FINAL_PROJECT
 Top-level Entity Name : FINAL_PROJECT
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 89
+Total registers : 4228
 Total pins : 82
 Total virtual pins : 0
-Total block memory bits : 2,359,296
+Total block memory bits : 2,398,848
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

@@ -116,9 +116,11 @@ BOARD_DRAWER b1(
     adrr,
     framedraw,
     en,
-    x,
-    y,
-    active_pixels);
+    enabled
+	);
+
+	wire enabled;
+	assign enabled = (active_pixels & !frame_done ); // thinking about adding in Hysn and Vsysn but nto sure.
 
 
 always@(*) begin

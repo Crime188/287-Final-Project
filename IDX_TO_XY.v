@@ -5,7 +5,7 @@ output reg [3:0]y_location
 );
 
 always @(*) begin
-    x_location = (idx / 15'd15) + 1'd1;
-    y_location = (idx / 15'd600) + 1'd1;
+    x_location = 8;
+    y_location = 8;
 end
 endmodule
