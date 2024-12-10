@@ -116,11 +116,12 @@ BOARD_DRAWER b1(
     adrr,
     framedraw,
     en,
-    enabled
+    enabled,
+	 y
 	);
 
 	wire enabled;
-	assign enabled = (active_pixels & !frame_done ); // thinking about adding in Hysn and Vsysn but nto sure.
+	assign enabled = (active_pixels & !frame_done); // thinking about adding in Hysn and Vsysn but nto sure.
 
 
 always@(*) begin
@@ -161,7 +162,7 @@ getStatus g1 (
     .status(status)
 );
 always @(*) begin // sets Disired X and Y based on the switches
-    Disired_X = SW[9:7] + 1;
-    Disired_Y = SW[2:0] + 1;
+    Disired_X = SW[9:7] ;
+    Disired_Y = SW[2:0] ;
 end
 endmodule
