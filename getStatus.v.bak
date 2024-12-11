@@ -1,25 +1,16 @@
-module getStatus (
-    input clk,
-    input rst,
-    input [3:0] x_location,
-    input [3:0] y_location,
-    input enable,
-    input [191:0] BoardState,
-    output reg [2:0] status
+module getStatus(
+    input [3:0] x_location,      // X-coordinate (0 to 7)
+    input [3:0] y_location,      // Y-coordinate (0 to 7)
+    input [191:0] BoardState,    // 192-bit Board state
+    output reg [2:0] status      // 3-bit status
 );
+    
+    // Calculate the bit offset based on the x_location and y_location
+    reg [5:0] index;  // 0-based index for (x, y)
 
-reg [7:0] index;
-
-always @(posedge clk or negedge rst) begin
-    if (rst) begin
-        status <= 3'b100;  // Default status when reset is active
-    end else if (enable) begin
-        // Calculate the index from x_location and y_location
-        index <= (x_location) + (3'd8 * (y_location - 3'd1));
-        
-        // Extract the 3-bit status from the BoardState using the calculated index
-        status <= BoardState[index +: 3];  // Concatenate the 3 bits starting at 'index'
-    end
-end
-
+always @(*) begin
+	index <= (y_location) * 8 + (x_location);
+	// Use the index to extract the corresponding 3 bits from the BoardState
+	status <= BoardState[index*3 +: 3]; // Extract 3 bits starting from the index*3
+end	
 endmodule

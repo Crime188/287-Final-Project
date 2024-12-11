@@ -7,10 +7,12 @@ module getStatus(
     
     // Calculate the bit offset based on the x_location and y_location
     reg [5:0] index;  // 0-based index for (x, y)
-
+		reg [2:0] result;
 always @(*) begin
-	index <= (y_location) * 8 + (x_location);
+	// index = (y_location) * 8 + (x_location);
 	// Use the index to extract the corresponding 3 bits from the BoardState
-	status <= BoardState[index*3 +: 3]; // Extract 3 bits starting from the index*3
-end	
+	result = BoardState[((y_location) * 8 + (x_location))*3 +: 3]; // Extract 3 bits starting from the index*3
+	status = result;
+	
+	end	
 endmodule

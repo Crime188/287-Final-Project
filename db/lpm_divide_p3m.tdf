@@ -21,7 +21,7 @@
 FUNCTION sign_div_unsign_slh (denominator[6..0], numerator[14..0])
 RETURNS ( quotient[14..0], remainder[6..0]);
 
---synthesis_resources = 
+--synthesis_resources = lut 107 
 SUBDESIGN lpm_divide_p3m
 ( 
 	denom[6..0]	:	input;

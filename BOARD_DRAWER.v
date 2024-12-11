@@ -18,7 +18,8 @@ reg [3:0]S;
 reg [3:0]NS;
 
 reg [14:0]IDX; // Index to Write to.
-
+reg [23:0] color;
+wire [2:0] status;
 
 parameter START = 4'd0,
     SET_ADDRESS = 4'd1,
@@ -67,28 +68,15 @@ always @(*) begin
         IDX_UP : NS = SET_ADDRESS;
     endcase
 end
-reg [23:0] color;
+
 
 
 getStatus g1 (
-X,
-Y,
-Board,
-status
+	.x_location(X),
+	.y_location(Y),
+   .BoardState(Board),
+   .status(status)
 );
-wire [2:0] piece;
-assign piece = status;
-
-always@(*)
-	case (piece)
-		  3'b000: color = 24'hFFFFFF; // blank - white 
-		  3'b001: color = 24'h98f5f9; // Player 1 Piece
-		  3'b010: color = 24'hfe5c5e; // Player 2 Piece
-		  3'b101: color = 24'h3f97fc; // Player 1 King
-		  3'b110: color = 24'hd80305; // Player 2 King
-		  3'b111: color = 24'hFF0000; // Blank Black
-		  default : color = 24'h123123; // Blackish // SOMTHING BAD HAPPEND
-	 endcase
 
 reg [3:0] X; // these are Board Coords
 reg [3:0] Y; // these are Board Coords
@@ -120,9 +108,8 @@ always @(posedge clk or negedge rst) begin
                 the_vga_draw_frame_write_mem_address <= IDX;
 					 Y_step <= IDX % 120;
             end
-            CONVERT_IDX : begin // not so sure about this one
-					// X <= (IDX % 4'd120); // / 4'd15;
-					//Y <= (IDX / 4'd120);
+            CONVERT_IDX : begin // this is the worst way to do this but it is functional.
+
 					// This tree is for finding out the y cord from IDX.
 					if (Y_step < 15) begin
 						Y <= 0;
@@ -186,13 +173,20 @@ always @(posedge clk or negedge rst) begin
 												end
 											else begin
 												X<= 7;
-												end
-					
-					 
+												end 
             end
             SET_COLOR : begin
-                
-            end
+               // this is a tree to determain the st.
+					case (status)
+					  3'b000: color <= 24'hFFFFFF; // blank - white 
+					  3'b001: color <= 24'h98f5f9; // Player 1 Piece
+					  3'b010: color <= 24'hfe5c5e; // Player 2 Piece
+					  3'b101: color <= 24'h3f97fc; // Player 1 King
+					  3'b110: color <= 24'hd80305; // Player 2 King
+					  3'b111: color <= 24'h000000; // Blank Black
+					  default : color <= 24'h123123; // Blackish // SOMTHING BAD HAPPEND
+				 endcase
+			end
             CHECK_COLOR : begin
                 the_vga_draw_frame_write_mem_data <= color;
             end

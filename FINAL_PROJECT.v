@@ -121,7 +121,7 @@ BOARD_DRAWER b1(
 	);
 
 	wire enabled;
-	assign enabled = (active_pixels & !frame_done); // thinking about adding in Hysn and Vsysn but nto sure.
+	assign enabled = !KEY[3]; // thinking about adding in Hysn and Vsysn but nto sure.
 
 
 always@(*) begin
