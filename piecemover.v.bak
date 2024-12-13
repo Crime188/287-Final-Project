@@ -1,0 +1,125 @@
+module pieceMover(
+    input clk,
+    input rst,                     // Reset signal for FSM
+    input start_move,              // Trigger for starting a new move
+    input [3:0] x1_location,       // Source X-coordinate
+    input [3:0] y1_location,       // Source Y-coordinate
+    input [3:0] x2_location,       // Destination X-coordinate
+    input [3:0] y2_location,       // Destination Y-coordinate
+    input [191:0] BoardState,      // Current Board state
+    output reg [191:0] updated_board, // Updated Board state
+    output reg done               // Move completion signal
+);
+    // FSM States
+    parameter IDLE = 3'b000,
+        WAIT_FOR_NEW_INPUT = 3'b001,
+        CLEAR_SOURCE = 3'b010,
+        UPDATE_DESTINATION = 3'b011,
+        DONE = 3'b100;
+    
+    reg [2:0] S, NS;
+    
+    // Registers to hold intermediate values
+    reg [5:0] source_index;
+    reg [5:0] dest_index;
+    reg [2:0] source_status;
+    reg [191:0] mask;
+    
+    // State transition logic (synchronous)
+    always @(posedge clk or posedge rst) begin
+        if (rst == 0)
+            S <= IDLE;
+        else
+            S <= NS;
+    end
+    
+    // Next state logic
+    always @(*) begin
+        case (S)
+            IDLE: begin
+                NS = WAIT_FOR_NEW_INPUT;  // Start by waiting for new inputs
+            end
+            
+            WAIT_FOR_NEW_INPUT: begin
+                // If a new move is triggered (start_move signal), go to CLEAR_SOURCE
+                if (start_move) begin
+                    NS = CLEAR_SOURCE;
+                end else begin
+                    NS = WAIT_FOR_NEW_INPUT;  // Stay in WAIT_FOR_NEW_INPUT if no new move
+                end
+            end
+            
+            CLEAR_SOURCE: begin
+                NS = UPDATE_DESTINATION;  // After clearing source, update destination
+            end
+            
+            UPDATE_DESTINATION: begin
+                NS = DONE;  // After updating destination, move to DONE state
+            end
+            
+            DONE: begin
+                NS = WAIT_FOR_NEW_INPUT;  // After done, wait for a new move
+            end
+            
+            default: NS = IDLE;  // Default case (should never occur)
+        endcase
+    end
+    
+    // FSM logic for performing the move operation
+    always @(posedge clk or posedge rst) begin
+        if (rst == 0) begin
+            updated_board <= 0;
+            source_index <= 0;
+            dest_index <= 0;
+            source_status <= 0;
+            mask <= 192'b111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111; // Default mask
+            done <= 0;      // Clear done signal
+        end
+        else begin
+            case (S)
+                IDLE: begin
+                    // No operation
+                    updated_board <= BoardState;
+                    done <= 0;
+                end
+                
+                WAIT_FOR_NEW_INPUT: begin
+                    // Wait for a new move input (no action needed here)
+                    updated_board <= updated_board;  // Keep current state
+                    done <= 0;
+                end
+                
+                CLEAR_SOURCE: begin
+                    // Calculate source and destination indexes
+                    source_index <= (y1_location * 8 + x1_location);  // 0-based index for the source
+                    dest_index <= (y2_location * 8 + x2_location);    // 0-based index for the destination
+                    
+                    // Extract the 3-bit status from the source location
+                    source_status <= BoardState[(source_index * 3) +: 3];  // Extract 3 bits from the source index
+                    
+                    // Create a mask to clear the 3 bits at the source and destination locations
+                    mask <= 192'b111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111;
+                    mask <= mask & ~(3'b111 << (source_index * 3)); // Clear the 3 bits at the source index
+                    
+                    // Clear the board state for the next operation
+                    updated_board <= BoardState & mask;
+                end
+                
+                UPDATE_DESTINATION: begin
+                    // Move the piece to the destination location
+                    updated_board <= updated_board | (source_status << (dest_index * 3)); // Update destination with the source piece
+                end
+                
+                DONE: begin
+                    // Final updated board is ready
+                    done <= 1; // Set the done signal high to indicate the move is complete
+                end
+                
+                default: begin
+                    updated_board <= BoardState;
+                    done <= 0;
+                end
+            endcase
+        end
+    end
+endmodule

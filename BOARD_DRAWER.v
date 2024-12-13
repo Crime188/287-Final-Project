@@ -5,14 +5,10 @@ module BOARD_DRAWER (
     output reg [14:0]the_vga_draw_frame_write_mem_address, // location to draw to.
     output reg [23:0]the_vga_draw_frame_write_mem_data, // color (8bit red, 8bit Green, 8bit Blue)
     output reg the_vga_draw_frame_write_a_pixel, // enable writing
-    input enabled,
-	 input [9:0]yCordEx
+    input enabled
 );
 // this Module Takes what Jameison did in the vgaDriverToFrameBuff
 //, and rewrites it to be a FSM.
-
-// It also finds when it is in the center of a square,
-// and when it should draw if it needs to. THIS DOES NOT WORK CURRENTLY
 
 reg [3:0]S;
 reg [3:0]NS;

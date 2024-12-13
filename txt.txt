@@ -1,0 +1,16 @@
+Logic For Peice Mover:
+
+    0) it starts as player 1's turn.
+
+    1) make sure the Selected Piece is yours.
+
+    1) check if it is a black Square
+
+    1) check if there is a piece alreay there,
+        if a piece is there, the movment is a failure.
+    2) check that the distance of the move is not more than 2 squares moved
+
+    3) if it was moved more than 1, (this is a jump) check that there is an 
+    enemy piece in the inbetween square.
+
+    4) if a succsessulf jump was done, it remains that players turn.

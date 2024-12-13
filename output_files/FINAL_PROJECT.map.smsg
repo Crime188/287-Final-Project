@@ -1,1 +1,3 @@
+Info (10281): Verilog HDL Declaration information at Piece_Mover.v(14): object "done" differs only in case from object "DONE" in the same scope File: D:/Final Project/Piece_Mover.v Line: 14
+Info (10281): Verilog HDL Declaration information at Selector.v(11): object "done" differs only in case from object "DONE" in the same scope File: D:/Final Project/Selector.v Line: 11
 Warning (10268): Verilog HDL information at vga_driver.v(60): always construct contains both blocking and non-blocking assignments File: D:/Final Project/vga_driver.v Line: 60

@@ -1,0 +1,177 @@
+module Peice_MOVER(
+input clk,
+input rst,
+input enable,
+input [191:0] BOARD,
+input Curr_Player_Turn,
+input x_Selected,
+input y_Selected,
+input x_Target,
+input y_Target,
+output reg [191:0] updated_board,
+output reg updated_Player_turn, // 1 is player 1, 0 is player 2
+output reg done;
+);
+
+reg [7:0] S;
+reg [7:0] NS;
+
+wire [2:0] Select_Status;
+wire [2:0] Target_Status;
+
+
+parameter START = 8'd0,
+    CHECK_PLAYER = 8'd1,
+    CHECK_TARGET = 8'd2,
+    CHECK_DISTANCE = 8'3,
+    MAKE_MOVE = 8'4,
+    REMOVE_CAPTURE = 8'd5,
+    FAIL = 8'd6,
+    DONE = 8'd7;
+
+reg isJump;
+reg isLeft;
+always @(posedge clk or negedge rst) begin
+    if (rst == 1'b0)
+        S <= START;
+    else
+        S <= NS;
+end
+
+
+// thinger for transitions
+reg [5:0] distance;
+
+always @(*) begin
+    case (S)
+        START : begin
+            if (enable)
+                NS = CHECK_TARGET;
+            else 
+                NS = START;
+        end 
+        CHECK_TARGET: begin
+            if ((Select_Status != 3'b000) && (Select_Status !=3'b111) && (Target_Status == 3'b111)) // it is a Piece not Blank
+                NS = CHECK_PLAYER;
+            else
+                NS = FAIL;
+        end
+        CHECK_PLAYER: begin
+            if ((Select_Status[0]) == Curr_Player_Turn)
+                NS = CHECK_DISTANCE;
+            else
+                NS = FAIL;
+        end
+        CHECK_DISTANCE : begin
+            if ((x_Selected > x_Target)) begin
+                distance = x_Selected - x_Target;
+                isLeft = 0;
+            end
+            else begin
+                distance = x_Target - x_Selected;
+                isLeft = 1;
+            end 
+            if (distance == 1)
+                NS = MAKE_MOVE;
+            else 
+                if (distance == 2)
+                    NS = REMOVE_CAPTURE;
+                else
+                    NS = FAIL;
+        end
+        MAKE_MOVE : begin
+            NS = DONE;
+            isLeft = 0;
+        end
+        REMOVE_CAPTURE : begin
+            NS = DONE;
+            isLeft = 0;
+        end
+        DONE : begin
+            NS = START;
+        end
+        FAIL : begin
+            NS = START;
+        end
+        default: ;
+    endcase    
+end
+
+reg [5:0] index_Target;
+reg [5:0] index_Selected;
+
+reg [5:0] removal_Index;
+
+always @(posedge clk or negedge rst) begin
+    if (rst == 1'b0) begin 
+        updated_Player_turn <= Curr_Player_Turn;
+        updated_board <= BOARD;
+        index_Selected <= (y_Selected * 8 + x_Selected);
+        index_Target <= (y_Target * 8 + x_Target); 
+        isJump <=0;
+    end
+    else
+        case (S)
+            START: begin
+                index_Selected <= (y_Selected * 8 + x_Selected);
+                index_Target <= (y_Target * 8 + x_Target);
+                updated_board <= BOARD;
+                isJump <=0;
+                done <=0;
+            end
+            CHECK_PLAYER : done <=0;
+            CHECK_DISTANCE : done <=0;
+            CHECK_TARGET : done <=0;
+            REMOVE_CAPTURE : begin
+                isJump <=1;
+                if (isLeft)
+                    removal_Index <= (y_Selected + 1) * 8 + (x_Selected +1);
+                else
+                    removal_Index <= (y_Selected + 1) * 8 + (x_Selected - 1);
+               
+                updated_board[(index_Selected) +: 3] <= 3'b111; // this should be a removeing of the piece
+                updated_board[(index_Target) +: 3] <= Select_Status;
+                updated_board[(removal_Index) +: 3] <= 3'b111;
+            end
+            MAKE_MOVE : begin
+                updated_board[(index_Selected) +: 3] <= 3'b111; // this should be a removeing of the piece
+                updated_board[(index_Target) +: 3] <= Select_Status;
+            end
+            DONE : begin
+                if (isJump)
+                    done <= 1;
+                    updated_Player_turn <= Curr_Player_Turn;
+                else begin
+                    done <= 1;
+                    updated_Player_turn <= !Curr_Player_Turn;
+                end
+            end
+            FAIL : begin
+                done <=1;
+                updated_Player_turn <= Curr_Player_Turn;
+                updated_board <= BOARD;
+            end
+            default: ;
+        endcase
+end
+
+
+
+getStatus Select_Get(
+    x_Selected,
+    y_Selected,
+    BOARD,
+    Select_Status
+);
+
+getStatus Target_Get(
+    x_Target,
+    y_Target,
+    BOARD,
+    Target_Status
+);
+
+
+
+
+endmodule
