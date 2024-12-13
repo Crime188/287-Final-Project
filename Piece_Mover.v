@@ -123,8 +123,10 @@ module PIECE_MOVER(
     // Initialize memory based on BOARD input
     always @(posedge clk or negedge rst) begin
         if (rst == 1'b0) begin
+				updated_board <= BOARD;
             x_middle <=0;
             y_middle <=0;
+            removal_Index <=0;
             // Initialize the board memory with the current state of the board (from BOARD input)
             board_mem[0] <= BOARD[2:0];
             board_mem[1] <= BOARD[5:3];
@@ -264,51 +266,45 @@ module PIECE_MOVER(
                     done <= 0;
                 end
 
+                CHECK_PLAYER : begin
+                    x_middle <= (x_Target + x_Selected) >> 1;
+                    y_middle <= (y_Target + y_Selected) >> 1;
+                end
+
+                CHECK_DISTANCE : begin
+                    // Calculate the removal index based on the middle coordinates
+                    removal_Index <= y_middle * 8 + x_middle;
+                end
                 REMOVE_SELECTED: begin
                     // Remove the selected piece from the memory
                     board_mem[index_Selected] <= 3'b111; // Clear the piece
                 end
 
                 PLACE_TARGET: begin
-                    // Place the selected piece at the target position
-                    board_mem[index_Target] <= Select_Status; // Assign selected piece to target
+                    if ((index_Target == 0) || (index_Target == 1) || (index_Target == 2) || (index_Target == 3) || (index_Target == 4) || (index_Target == 5) || (index_Target == 6) || (index_Target == 7) || (index_Target == 57) || (index_Target == 58) || (index_Target == 59) || (index_Target == 60) || (index_Target == 61) || (index_Target == 62) || (index_Target == 63)) // the list of EndPoints to turn into kings.
+                        begin
+                            if (Select_Status[1] == 1) // is player 2
+                                begin
+                                    board_mem[index_Target] <= 3'b110;    
+                                end
+                            else // is player 2
+                                begin
+                                    board_mem[index_Target] <= 3'b101;
+                                end
+                            end
+                    else 
+                        // Place the selected piece at the target position
+                        begin
+                            board_mem[index_Target] <= Select_Status; // Assign selected piece to target
+                        end                            
                 end
 
                 REMOVE_CAPTURED: begin
-                    // Determine the direction of the jump in the x-direction
-                    if (x_Target > x_Selected) begin
-                        // Left Jump
-                        x_middle <= (x_Selected - 1); // Middle index is one step to the right of x_Selected
-                    end else begin
-                        // Negative x direction (jump to the left)
-                        x_middle <= (x_Selected + 1); // Middle index is one step to the left of x_Selected
-                    end
-
-                    // Determine the direction of the jump in the y-direction
-                    if (y_Target > y_Selected) begin
-                        // Positive y direction (jump down)
-                        y_middle <= (y_Selected + 1); // Middle index is one step down from y_Selected
-                    end else begin
-                        // Negative y direction (jump up)
-                        y_middle <= (y_Selected - 1); // Middle index is one step up from y_Selected
-                    end
-
-                    // Calculate the removal index based on the middle coordinates
-                    removal_Index <= y_middle * 8 + x_middle;
-
-                    // Ensure the removal index is within bounds (valid positions on the board)
-                    if (removal_Index < 64) begin
                         // Check if the middle position has a piece to be removed (i.e., it's not empty)
-                        if (board_mem[removal_Index] != 3'b111) begin
+                        if (board_mem[removal_Index] != 3'b000) begin
                             board_mem[removal_Index] <= 3'b111; // Clear the captured piece
                         end
-                    end
-                
                 end
-
-            
-
-
                 DONE: begin
                     done <= 1;
                     updated_Player_turn <= !Curr_Player_Turn; // Switch player turn
